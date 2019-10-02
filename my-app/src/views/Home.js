@@ -25,11 +25,11 @@ export default class Home extends Component {
   render() {
     return (
       <Container>
+        <h1> {this.state.name} </h1>
         <Row>
           <Col>
-            <h1> {this.state.name} </h1>
             <h2> {this.state.short_description} </h2>
-            <p> {this.state.long_description} </p>
+            <p align="left"> {this.state.long_description} </p>
           </Col>
           <Col>
             <img src={DA6102} alt="Logo" />;
@@ -39,20 +39,19 @@ export default class Home extends Component {
           <Col>
             <h2> Features </h2>
             {this.state.features.map(function (d) {
-              return (<li>{d}</li>)
+              return (<li align="left">{d}</li>)
             })}
-            <p> {this.state.features} </p>
           </Col>
           <Col>
             <h2> Benefits </h2>
             {this.state.benefits.map(function (d) {
-              return (<li>{d}</li>)
+              return (<li align="left">{d}</li>)
             })}
           </Col>
           <Col>
             <h2> Applications </h2>
             {this.state.applications.map(function (d) {
-              return (<li>{d}</li>)
+              return (<li align="left">{d}</li>)
             })}
           </Col>
         </Row>
