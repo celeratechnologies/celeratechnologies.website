@@ -7,6 +7,8 @@ export default class Header extends Component {
     state = {}
     constructor(props) {
         super(props)
+
+        // replace this with AJAX call to backend 
         let data = {
             products: ["DA6102", "DA6103", "DA6104"]
         }
@@ -16,7 +18,7 @@ export default class Header extends Component {
     render() {
         return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="home">
                     <img
                         src={logo}
                         width="80"
@@ -28,16 +30,16 @@ export default class Header extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                    <Link to="/about" className="nav-link">About Us</Link>
+                        <Link to="/about" className="nav-link">About Us</Link>
                         <NavDropdown title="Products" id="collasible-nav-dropdown">
                             {this.state.products.map(function (d) {
-                                return (<Link to={`product/${d}/`} className="nav-link">{d}</Link>)
+                                return (<Link to={`/product/${d}/`} className="nav-link">{d}</Link>)
                             })}
                         </NavDropdown>
                         <Link to="/news" className="nav-link">News</Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#contactus">Contact Us</Nav.Link>
+                    <Link to="/contact" className="nav-link">Contact Us</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
