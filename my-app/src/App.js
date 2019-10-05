@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import Home from './views/Home'
-import logo from './resources/celeraLogo.jpg' 
+import Chip from './views/Chip'
+import Header from './components/Header'
+import logo from './resources/celeraLogo.jpg'
+import { HashRouter, Route } from 'react-router-dom'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <img src={logo} alt="Logo" />;
-        <Home />
-      </div>
+      <HashRouter>
+
+        <div className="App">
+          <Header />
+          <img src={logo} alt="Logo" />;
+        <Route path="/product/:name" component={Chip} />
+        </div>
+      </HashRouter>
+
     )
   }
 }
