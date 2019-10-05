@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Row, Col, Container } from 'react-bootstrap'
 import DA6102 from '../resources/da6102.jpg'
-import List from '../components/List'
+import List from './List'
 
 export default class Chip extends Component {
 
