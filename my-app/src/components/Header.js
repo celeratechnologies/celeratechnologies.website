@@ -10,7 +10,7 @@ export default class Header extends Component {
 
         // replace this with AJAX call to backend 
         let data = {
-            products: ["DA6102", "DA6103", "DA6104"]
+            products: ["XC928-XC9282", "DA6103", "DA6104"]
         }
         this.state.products = data.products
 
@@ -35,7 +35,7 @@ export default class Header extends Component {
                             {/* {this.state.products.map(function (d) {
                                 return (<Link to={`/product/${d}/`} className="nav-link">{d}</Link>)
                             })} */}
-                          <Link to={`/product/DA6102/`} className="nav-link">DA6102</Link>
+                          <Link to={`/product/XC928-XC9282/`} className="nav-link">XC928-XC9282</Link>
                           <Link to={`/product/DA6103/`} className="nav-link">DA6103</Link>
                           <Link to={`/product/DA6104/`} className="nav-link">DA6104</Link>
 
