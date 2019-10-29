@@ -1,10 +1,12 @@
 {
-    "a": "linkToImageA",
-    "b": "linkToImageB",
-    "c": "linkToImageC",
-    "d": "linkToImageD",
-    "power": "/xc9281/power.pdf",
-    "f": "linkToImageF",
-    "g": "linkToImageG",
-    "h": "linkToImageH"
+    "a": "<path to image A>",
+    "b": "<path to image B>",
+    "c": "<path to image C>",
+    "d": "<path to image D>",
+    "e": "<path to image E>",
+    "f": "<path to image F>",
+    "g": "<path to image G>",
+    "h": "<path to image H>",
+    "power": "/xc9281/power.pdf"
+
 }
