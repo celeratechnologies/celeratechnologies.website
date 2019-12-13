@@ -19,7 +19,6 @@ class App extends Component {
         <Route path="/product/:name" component={Chip} />
         <Route path="/about/" component={About} />
         <Route path="/news/" component={News} />
-
         </div>
       </HashRouter>
 

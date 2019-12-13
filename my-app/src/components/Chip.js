@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Row, Col, Container } from 'react-bootstrap'
 import List from './List'
-import { Document } from 'react-pdf'
-
+import PDF from './PDF'
 export default class Chip extends Component {
 
   state = {
@@ -66,7 +65,7 @@ export default class Chip extends Component {
     this.state.long_description = data.long_description
     this.state.features = data.features
     this.state.applications = data.applications
-    this.state.chip_image = "../resources/" + this.state.chip_image
+    this.state.chip_image = "./" + this.state.chip_image
   }
 
   render() {
@@ -80,10 +79,7 @@ export default class Chip extends Component {
             <p align="left"> {this.state.long_description} </p>
           </Col>
           <Col>
-            <Document file='./top.pdf' />
-
-            {/* <Document file={this.state.chip_image} /> */}
-            {/* <img src={XC9281} alt="Logo" /> */}
+            <PDF file={this.state.chip_image}/>
           </Col>
         </Row>
         <Row>
