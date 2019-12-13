@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Link } from 'react';
 import { Button, Row, Col, Container } from 'react-bootstrap'
 import List from './List'
 import PDF from './PDF'
@@ -79,7 +79,7 @@ export default class Chip extends Component {
             <p align="left"> {this.state.long_description} </p>
           </Col>
           <Col>
-            <PDF file={this.state.chip_image}/>
+            <PDF file={this.state.chip_image} />
           </Col>
         </Row>
         <Row>
@@ -92,8 +92,20 @@ export default class Chip extends Component {
             <List data={this.state.applications} />
           </Col>
         </Row>
-        <Button variant="info">Download Datasheet</Button>
+
+        <Button variant="info" onClick={() => this.pdfDownload(this.state.chip_name)}> Download Datasheet</Button>
       </Container>
     )
   }
+
+
+  pdfDownload = (id) => {
+    fetch(' http://127.0.0.1:8000/api/file/pdf/' + id, {
+      method: 'get',
+      headers: {
+        Accept: 'application/octet-stream',
+        'Content-Type': 'application/octet-stream'
+      }
+    }).then((res) => res.json());
+  };
 }
