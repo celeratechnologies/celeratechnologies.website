@@ -9,7 +9,7 @@ export default class PDF extends Component {
   state = {
     numPages: null,
     pageNumber: 1,
-    file: this.props.file
+    file: './' + this.props.file + '.pdf'
   };
 
   onDocumentLoadSuccess = ({ numPages }) => {

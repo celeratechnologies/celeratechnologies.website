@@ -1,7 +1,9 @@
-import React, { Component, Link } from 'react';
-import { Button, Row, Col, Container } from 'react-bootstrap'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import { Button, Row, Col, Container, Nav, NavDropdown } from 'react-bootstrap'
 import List from './List'
 import PDF from './PDF'
+
 export default class Chip extends Component {
 
   state = {
@@ -11,7 +13,7 @@ export default class Chip extends Component {
   constructor(props) {
     super(props)
     this.state.chip_name = this.props.match.params.name
-
+    this.state.current_view = this.props.match.params.view
     // replace this with AJAX call to backend 
 
     let data = {
@@ -65,6 +67,7 @@ export default class Chip extends Component {
     this.state.long_description = data.long_description
     this.state.features = data.features
     this.state.applications = data.applications
+    this.state.components = data.components
     this.state.chip_image = "./" + this.state.chip_image
   }
 
@@ -78,8 +81,15 @@ export default class Chip extends Component {
             <h2> {this.state.short_description} </h2>
             <p align="left"> {this.state.long_description} </p>
           </Col>
+          {/* get the image */}
           <Col>
-            <PDF file={this.state.chip_image} />
+              <NavDropdown title="Views" id="collasible-nav-dropdown">
+                {Object.keys(this.state.components).map(function (d) {
+                  return (<Link to={`/product/XC928-XC9282/${d}`} className="nav-link">{d}</Link>)
+                })}
+
+              </NavDropdown>
+              <PDF file={this.state.current_view} />
           </Col>
         </Row>
         <Row>

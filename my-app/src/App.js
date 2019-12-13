@@ -9,15 +9,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
-  
   render() {
     return (
       <HashRouter>
-
         <div className="App">
           <Header />
           <img src={logo} alt="Logo" />;
-        <Route path="/product/:name" component={Chip}/>
+        <Route path="/product/:name/:view" component={Chip}/>
         <Route path="/about" component={About} />
         <Route path="/news" component={News} />
         </div>
