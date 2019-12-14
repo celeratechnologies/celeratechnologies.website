@@ -12,11 +12,14 @@ export default class Chip extends Component {
 
   constructor(props) {
     super(props)
-    this.state.chip_name = this.props.match.params.name
-    this.state.current_view = this.props.match.params.view
+    this.setState({
+      isDataFetched: false,
+      count: 0
+    })
+    // replace this with AJAX call to backend
 
-    // replace this with AJAX call to backend 
-
+  }
+  componentDidMount(){
     let data = {
       "chip_name": "XC9281",
       "chip_image": "top.pdf",
@@ -63,16 +66,31 @@ export default class Chip extends Component {
         "power": {}
       }
     }
-    this.state.chip_image = data.chip_image
-    this.state.short_description = data.short_description
-    this.state.long_description = data.long_description
-    this.state.features = data.features
-    this.state.applications = data.applications
-    this.state.components = data.components
+    this.setState({
+      chip_image: data.chip_image,
+      short_description: data.short_description,
+      long_description: data.long_description,
+      features: data.features,
+      applications: data.applications,
+      components: data.components,
+      chip_name: this.props.match.params.name,
+      current_view: this.props.match.params.view,
+      path: null,
+      isDataFetched: true
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.name !== this.props.match.params.name || prevProps.match.params.view !== this.props.match.params.view) {
+    //either 
+      this.forceUpdate()
+   //or
+      console.log('update')
+    }
   }
 
   render() {
-
+    if (!this.state.isDataFetched) return null;
     return (
       <Container>
         <h1> {this.state.chip_name} </h1>
@@ -83,10 +101,13 @@ export default class Chip extends Component {
           </Col>
           {/* get the image */}
           <Col>
-            <NavDropdown title="Views" id="collasible-nav-dropdown" onSelect={function(evt){console.log(evt)}}>
-              <Link to={`/product/XC928-XC9282/top`} className="nav-link">top</Link>
-              {Object.keys(this.state.components).map(function (d) {
-                return (<Link to={`/product/XC928-XC9282/${d}`} className="nav-link">{d}</Link>)
+            <NavDropdown title="Change View" id="collasible-nav-dropdown">
+              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
+              {console.log(this.state.path)}
+              {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
+              {Object.keys(this.state.components).map((d) => {
+                return (<Link to={`/product/${this.state.chip_name}/${d}`} className="nav-link"
+                  onClick={() => this.setState({ path: d })}>{d}</Link>)
               })}
             </NavDropdown>
             <PDF file={this.state.current_view} />
