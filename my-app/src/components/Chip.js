@@ -6,9 +6,7 @@ import PDF from './PDF'
 
 export default class Chip extends Component {
 
-  state = {
-
-  }
+  state = {}
 
   constructor(props) {
     super(props)
@@ -16,10 +14,10 @@ export default class Chip extends Component {
       isDataFetched: false,
       count: 0
     })
-    // replace this with AJAX call to backend
 
   }
-  componentDidMount(){
+  componentDidMount() {
+    // replace this with AJAX call to backend
     let data = {
       "chip_name": "XC9281",
       "chip_image": "top.pdf",
@@ -82,9 +80,11 @@ export default class Chip extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.name !== this.props.match.params.name || prevProps.match.params.view !== this.props.match.params.view) {
-    //either 
       this.forceUpdate()
-   //or
+      this.setState({
+        name: this.props.match.params.name,
+        view: this.props.match.params.view
+      })
       console.log('update')
     }
   }
@@ -103,7 +103,6 @@ export default class Chip extends Component {
           <Col>
             <NavDropdown title="Change View" id="collasible-nav-dropdown">
               <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
-              {console.log(this.state.path)}
               {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
               {Object.keys(this.state.components).map((d) => {
                 return (<Link to={`/product/${this.state.chip_name}/${d}`} className="nav-link"
