@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col, Container } from 'react-bootstrap'
+import {Container } from 'react-bootstrap'
 
 export default class News extends Component {
   

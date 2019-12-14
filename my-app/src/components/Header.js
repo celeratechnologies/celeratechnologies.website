@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from '../resources/celeraLogo.jpg'
 import { Link } from 'react-router-dom'
 

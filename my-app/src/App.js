@@ -25,8 +25,4 @@ class App extends Component {
   }
 }
 
-function refreshPage(){ 
-  window.location.reload(); 
-}
-
 export default App;

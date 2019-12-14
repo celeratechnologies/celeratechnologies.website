@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { setOptions, Document, Page } from "react-pdf";
-const pdfjsVersion = "2.0.305";
+import { Document, Page } from "react-pdf";
 /* eslint-disable import/first */
 import { pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
