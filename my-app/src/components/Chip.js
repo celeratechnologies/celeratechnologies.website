@@ -72,10 +72,14 @@ export default class Chip extends Component {
       applications: data.applications,
       components: data.components,
       chip_name: this.props.match.params.name,
-      current_view: this.props.match.params.view,
       path: null,
       isDataFetched: true
     })
+    if(this.props.match.params.view !== undefined) {
+      this.setState({current_view: this.props.match.params.view})
+    } else {
+      this.setState({current_view: "top"})
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
