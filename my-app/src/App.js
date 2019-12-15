@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Chip from './components/Chip'
 import Header from './components/Header'
 import About from './components/About'
+import Solution from './components/Solution'
 import News from './components/News'
 import Logo from './components/Logo'
 import { HashRouter, Route } from 'react-router-dom'
@@ -15,10 +16,11 @@ class App extends Component {
         <div className="App">
           <Header />
           <Logo />
-        {/* <Route exact path="/product/:name/top" component={Chip} /> */}
-            <Route path="/product/:name/:view" component={Chip} />
-            <Route path="/about" component={About} />
-            <Route path="/news" component={News} />
+          <Route path="/product/:name/:view" component={Chip} />
+          <Route path="/about" component={About} />
+          <Route path="/news" component={News} />
+          <Route path="/solution" component={Solution} />
+
         </div>
       </HashRouter>
 

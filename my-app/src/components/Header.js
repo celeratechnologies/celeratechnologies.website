@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from '../resources/celeraLogo.jpg'
 import { Link } from 'react-router-dom'
 
@@ -31,19 +31,22 @@ export default class Header extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Link to="/about" className="nav-link">About Us</Link>
+                        <Link to="/solution" className="nav-link">Solution</Link>
                         <NavDropdown title="Products" id="collasible-nav-dropdown">
                             {this.state.products.map(function (d) {
                                 return (<Link to={`/product/${d}/top`} className="nav-link">{d}</Link>)
                             })}
-                          {/* <Link to={`/product/XC928-XC9282/`} className="nav-link">XC928-XC9282</Link>
+                            {/* <Link to={`/product/XC928-XC9282/`} className="nav-link">XC928-XC9282</Link>
                           <Link to={`/product/DA6103/`} className="nav-link">DA6103</Link>
                           <Link to={`/product/DA6104/`} className="nav-link">DA6104</Link> */}
 
                         </NavDropdown>
                         <Link to="/news" className="nav-link">News</Link>
+
                     </Nav>
+
                     <Nav>
-                    <Link to="/contact" className="nav-link">Contact Us</Link>
+                        <Link to="/contact" className="nav-link">Contact Us</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
