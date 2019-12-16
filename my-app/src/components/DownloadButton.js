@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import logo from '../resources/celeraLogo.jpg'
 import { Link } from 'react-router-dom'
 
-import pdf from '../XC9281-XC9282.pdf'
+import pdf from '../resources/XC9281-XC9282.pdf'
 
 export default class DownloadButton extends Component {
     state = {}
@@ -14,7 +14,7 @@ export default class DownloadButton extends Component {
     }
 
     render() {
-        return (<a href={pdf}>Download</a>)
+        return (<a href={pdf} download="XC9281-XC9282">Download</a>)
     }
 
     }
