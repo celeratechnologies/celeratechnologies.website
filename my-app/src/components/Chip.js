@@ -4,6 +4,7 @@ import {Row, Col, Container, NavDropdown } from 'react-bootstrap'
 import List from './List'
 import PDF from './PDF'
 import DownloadButton from './DownloadButton';
+import { Button } from '../../../../../../node_modules/react-bootstrap';
 
 export default class Chip extends Component {
 
@@ -101,20 +102,19 @@ export default class Chip extends Component {
         <h1> {this.state.chip_name} </h1>
         <Row>
           <Col>
+            {/* make this text wrapped */}
             <h2> {this.state.short_description} </h2>
             <p align="left"> {this.state.long_description} </p>
           </Col>
           {/* get the image */}
           <Col>
-            <NavDropdown title="Change View" id="collasible-nav-dropdown">
-              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
-              {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
-              {Object.keys(this.state.components).map((d) => {
-                return (<Link to={`/product/${this.state.chip_name}/${d}`} className="nav-link"
-                  onClick={() => this.setState({ path: d })}>{d}</Link>)
-              })}
-            </NavDropdown>
-            <PDF chip = {this.state.chip_name} file={this.state.current_view} />
+            <Button title="Traverse Hierarchy">
+              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>View Larger</Link>
+            </Button>
+            {/* add text to show the Hierarchy */}
+            {/* make this small and then go larger on an "explore schematic" button */}
+            <PDF size="400" chip = {this.state.chip_name} file={this.state.current_view} />
+            {/* thumbnail simulation pdf in the corner */}
           </Col>
         </Row>
         <Row>

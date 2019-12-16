@@ -5,6 +5,7 @@ import About from './components/About'
 import Solution from './components/Solution'
 import News from './components/News'
 import Logo from './components/Logo'
+import Viewer from './components/Viewer'
 import { HashRouter, Route } from 'react-router-dom'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,8 +16,9 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           <Header />
-          <Logo />
-          <Route path="/product/:name/:view" component={Chip} />
+          <Route exact path="/" component={Logo} />
+          <Route exact path="/product/:name/" component={Chip} />
+          <Route path="/product/:name/:view" component={Viewer} />
           <Route path="/about" component={About} />
           <Route path="/news" component={News} />
           <Route path="/solution" component={Solution} />

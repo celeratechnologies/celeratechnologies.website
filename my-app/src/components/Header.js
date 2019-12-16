@@ -34,7 +34,7 @@ export default class Header extends Component {
                         <Link to="/solution" className="nav-link">Solution</Link>
                         <NavDropdown title="Products" id="collasible-nav-dropdown">
                             {this.state.products.map(function (d) {
-                                return (<Link to={`/product/${d}/top`} className="nav-link">{d}</Link>)
+                                return (<Link to={`/product/${d}/`} className="nav-link">{d}</Link>)
                             })}
                             {/* <Link to={`/product/XC9281-XC9282/`} className="nav-link">XC9281-XC9282</Link>
                           <Link to={`/product/DA6103/`} className="nav-link">DA6103</Link>
