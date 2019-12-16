@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Button, Row, Col, Container, NavDropdown } from 'react-bootstrap'
+import {Row, Col, Container, NavDropdown } from 'react-bootstrap'
 import List from './List'
 import PDF from './PDF'
+import DownloadButton from './DownloadButton';
 
 export default class Chip extends Component {
 
@@ -75,10 +76,10 @@ export default class Chip extends Component {
       path: null,
       isDataFetched: true
     })
-    if(this.props.match.params.view !== undefined) {
-      this.setState({current_view: this.props.match.params.view})
+    if (this.props.match.params.view !== undefined) {
+      this.setState({ current_view: this.props.match.params.view })
     } else {
-      this.setState({current_view: "top"})
+      this.setState({ current_view: "top" })
     }
   }
 
@@ -126,20 +127,10 @@ export default class Chip extends Component {
             <List data={this.state.applications} />
           </Col>
         </Row>
-
-        <Button variant="info" onClick={() => this.pdfDownload(this.state.chip_name)}> Download Datasheet</Button>
+        <DownloadButton />
       </Container>
     )
   }
 
 
-  pdfDownload = (id) => {
-    fetch(' http://127.0.0.1:8000/api/file/pdf/' + id, {
-      method: 'get',
-      headers: {
-        Accept: 'application/octet-stream',
-        'Content-Type': 'application/octet-stream'
-      }
-    }).then((res) => res.json());
-  };
 }
