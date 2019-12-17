@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Button, Row, Col, Container, NavDropdown } from 'react-bootstrap'
-import List from './List'
+import { Nav, Row, Col, Container, NavDropdown } from 'react-bootstrap'
 import PDF from './PDF'
-import DownloadButton from './DownloadButton';
+import DownloadButton from './DownloadButton'
+import windowSize from 'react-window-size'
+
 
 export default class Viewer extends Component {
 
@@ -102,6 +103,8 @@ export default class Viewer extends Component {
                 {/* get the image */}
                 <Row>
                     <Col>
+                        <p>Currently at {this.state.current_view}</p>
+
                         <NavDropdown title="Traverse Hierarchy" id="collasible-nav-dropdown">
                             <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
                             {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
@@ -112,17 +115,14 @@ export default class Viewer extends Component {
                         </NavDropdown>
                     </Col>
                     <Col>
-                        <Button title="Traverse Hierarchy">
+                        <Nav title="Traverse Hierarchy">
                             <Link to={`/product/${this.state.chip_name}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go Back to Datasheet</Link>
-                        </Button>
+                        </Nav>
                     </Col>
                 </Row>
-                <p>Currently at {this.state.current_view}</p>
-
                 {/* add text to show the Hierarchy */}
-                <PDF chip={this.state.chip_name} file={this.state.current_view} />
-                {/* thumbnail simulation pdf in the corner */}
-                <DownloadButton />
+                <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view} />
+                <DownloadButton chip={this.state.chip_name} />
             </Container>
         )
     }

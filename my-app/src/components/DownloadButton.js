@@ -14,11 +14,11 @@ export default class DownloadButton extends Component {
     }
 
     render() {
-        return (<a href={pdf} download="XC9281-XC9282">Download</a>)
+        return (<a href={pdf} download={this.props.name}>Download pdf</a>)
     }
 
-    }
-    {/* // render() {
+}
+{/* // render() {
                 //     // if (!this.state.isDataFetched) return null;
                 //     return (
                 //         // <Button variant="info" onClick={() => this.pdfDownload(this.state.chip_name)}> Download Datasheet</Button>
@@ -37,4 +37,3 @@ export default class DownloadButton extends Component {
                 };
             } */}
 
-            

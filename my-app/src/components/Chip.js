@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import {Row, Col, Container, NavDropdown } from 'react-bootstrap'
+import { Nav, Row, Col, Container } from 'react-bootstrap'
 import List from './List'
 import PDF from './PDF'
 import DownloadButton from './DownloadButton';
@@ -106,15 +106,12 @@ export default class Chip extends Component {
             <h2> {this.state.short_description} </h2>
             <p align="left"> {this.state.long_description} </p>
           </Col>
-          {/* get the image */}
           <Col>
-            <Button title="Traverse Hierarchy">
-              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>View Larger</Link>
-            </Button>
-            {/* add text to show the Hierarchy */}
-            {/* make this small and then go larger on an "explore schematic" button */}
-            <PDF size="400" chip = {this.state.chip_name} file={this.state.current_view} />
-            {/* thumbnail simulation pdf in the corner */}
+            <Nav title="Show Larger">
+              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>Explore Schematic
+              </Link>
+            </Nav>
+            <PDF size="400" chip={this.state.chip_name} file={this.state.current_view} />
           </Col>
         </Row>
         <Row>
@@ -127,7 +124,7 @@ export default class Chip extends Component {
             <List data={this.state.applications} />
           </Col>
         </Row>
-        <DownloadButton />
+        <DownloadButton chip={this.state.chip_name} />
       </Container>
     )
   }
