@@ -17,8 +17,12 @@ class App extends Component {
         <div className="App">
           <Header />
           <Route exact path="/" component={Logo} />
-          <Route exact path="/product/:name/" component={Chip} />
-          <Route path="/product/:name/:view" component={Viewer} />
+          <Route exact path="/product/:name/" render={(props) => (
+            <Chip key={props.match.params.name} {...props} />)
+          } />
+          <Route path="/product/:name/:view/" render={(props) => (
+            <Viewer key={props.match.params.view} {...props} />)
+          } />
           <Route path="/about" component={About} />
           <Route path="/news" component={News} />
           <Route path="/solution" component={Solution} />
