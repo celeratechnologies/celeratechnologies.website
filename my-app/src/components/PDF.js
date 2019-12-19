@@ -9,11 +9,12 @@ export default class PDF extends Component {
     numPages: null,
     pageNumber: 1,
     file: './' + this.props.chip + '/' + this.props.file + '.pdf',
+    // file: './Tokyo/service.pdf',
     size: "thumbnail"
   };
 
   componentDidMount() {
-    this.setState({size: this.props.size})
+    this.setState({ size: this.props.size })
   }
 
   onDocumentLoadSuccess = ({ numPages }) => {
@@ -24,17 +25,17 @@ export default class PDF extends Component {
     const { pageNumber, numPages } = this.state;
 
     return (
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
         <Document
           file={this.state.file}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
-          <Page width={this.state.size} pageNumber={pageNumber} />
+          <Page width={this.state.size} pageNumber={pageNumber} renderMode="svg"
+          />
         </Document>
-        {/* <p>
-          Page {pageNumber} of {numPages}
-        </p> */}
       </div>
+
     );
   }
 }

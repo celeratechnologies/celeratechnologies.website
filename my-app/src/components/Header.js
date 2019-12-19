@@ -10,7 +10,7 @@ export default class Header extends Component {
 
         // replace this with AJAX call to backend 
         let data = {
-            products: ["XC9281-XC9282", "DA6103", "DA6104"]
+            products: ["Toyko", "Yokahama", "Yokosuka"]
         }
         this.state.products = data.products
 

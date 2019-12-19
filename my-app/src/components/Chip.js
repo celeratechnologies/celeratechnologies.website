@@ -5,6 +5,7 @@ import List from './List'
 import PDF from './PDF'
 import DownloadButton from './DownloadButton';
 import { Button } from '../../../../../../node_modules/react-bootstrap';
+import axios from 'axios'
 
 export default class Chip extends Component {
 
@@ -19,9 +20,33 @@ export default class Chip extends Component {
 
   }
   componentDidMount() {
+
+    // axios.get('Toyko.json') // JSON File Path
+    //   .then(data => {
+    //     this.setState({
+    //       chip_image: data.chip_image,
+    //       short_description: data.short_description,
+    //       long_description: data.long_description,
+    //       features: data.features,
+    //       applications: data.applications,
+    //       components: data.components,
+    //       chip_name: this.props.match.params.name,
+    //       path: null,
+    //       isDataFetched: true
+    //     })
+    //     if (this.props.match.params.view !== undefined) {
+    //       this.setState({ current_view: this.props.match.params.view })
+    //     } else {
+    //       this.setState({ current_view: "top" })
+    //     }
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
     // replace this with AJAX call to backend
     let data = {
-      "chip_name": "XC9281-XC9282",
+      "chip_name": "Tokyo",
       "chip_image": "top.pdf",
       "short_description": "Highly integrated, compact PMIC",
       "long_description": "The XC9281/XC9282 series are 600mA synchronoous rectification DC/DC converters adopting HiSAT-COT (*) control.  Due to increasing the oscillation frequency to high frequency, 0.47uH coil with a size of 1.0 x 0.5 mm can be used. A 0.6 x 0.3 mm ceramic capacitor can be used for the input capacitance (Cin) and the output capacitance(Cl), realizing that the mounting area inluding peripheral components can be reduced to 3.52 mm2. Due to increasing the oscillation frequency to a high frequency, the mounting area is reduced. Additionally, an efficiency equal to or higher than that of conventional products can realize by improving on-resistance and current consumption.  Becasue of these featrues, XC9281/XC9282 series are ideal for equipment requiring miniaturization and low profile mounting area, and battery-powered equipment such as mobile equipment.  Moreover, the high-speed transient response technology of the HiSAT-COT control makes it possible to minimize the fluctuation of the output voltage for a load transient condition. This feature is optimal for applilcations requiring a fast response and output voltage stability for an instantaneous load fluctuation like FPGA.  (*)HiSAT-COT is a proprietary high -speed transient response technology for DC?DC converter which was developed by Torex.  It is Ideal for the LSI's that require high precision and high stability power supply voltage.",
@@ -107,10 +132,12 @@ export default class Chip extends Component {
             <p align="left"> {this.state.long_description} </p>
           </Col>
           <Col>
-            <Nav title="Show Larger">
-              <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>Explore Schematic
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Nav title="Show Larger">
+                <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>Explore Schematic
               </Link>
-            </Nav>
+              </Nav>
+            </div>
             <PDF size="400" chip={this.state.chip_name} file={this.state.current_view} />
           </Col>
         </Row>

@@ -16,6 +16,7 @@ export default class DownloadButton extends Component {
     render() {
         return (<a href={pdf} download={this.props.name}>Download pdf</a>)
     }
+    // https://medium.com/yellowcode/download-api-files-with-react-fetch-393e4dae0d9e
 
 }
 {/* // render() {
