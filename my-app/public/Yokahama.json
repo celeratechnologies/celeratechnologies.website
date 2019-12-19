@@ -1,0 +1,39 @@
+{
+    "chip_name": "Yokahama",
+    "chip_image": "top.pdf",
+    "short_description": "36V/5ASynchronous COT Step-Down DC/DC Convertor",
+    "long_description": "XC97xxSeries is asynchronous Step-DownDC/DC converter. The Step-Downconverter block incorporates 36mΩhi-side driver transistor and a synchronous 10mΩlow-side switching transistor. By minimizing ON resistance of the built-in transistors, XC97xx series can deliver highly efficient and stable output current up to 5A. With high switching frequenciesof 1MHz,a choice of a small inductor is possible. The output voltage can be adjustable by external resistors. The control method (Fixed PWM or PFM/PWM automatic switch-over) can be selectable by MODEpin.",
+    "features": [
+        "OperationVoltage Range:4.5V～36.0V",
+        "Output Voltage Range:0.4V ~ 6V",
+        "Oscillation Frequency :100kHz~1MHz",
+        "Output Current:5A",
+        "Control Methods:COTFixedPWM& PWM/PFM Automatic Switching",
+        "RDS-ON-HS:36mΩ",
+        "RDS-ON-LS:10mΩ",
+        "Protection Circuit:Thermal ShutdownShort Circuit Protection or HICCUP",
+        "Functions:UVLO, Power Good,CLHigh Speed DischargeExt. Synchronization",
+        "Soft-Start:AdjustableValley",
+        "Current Protection:8A",
+        "FBVoltage accuracy:+/-1.0%",
+        "Efficiency :TBD",
+        "OperationAmbient Temp.:-40°C ~ +105°C",
+        "PKG:FCQFNxx(3 x 4mm),WLCSPxx(TBD)",
+        "Environmentally Friendly:EU RoHS Compliant, Pb Free"
+    ],
+    "applications": [
+        "Server, Networking",
+        "SoC Core voltage"
+    ],
+    "components": {
+        "vout": {},
+        "service": {},
+        "regulation": {
+            "cot": {}
+        },
+        "logic": {},
+        "highside_power": {},
+        "lowside_power": {},
+        "fault": {}
+    }
+}
