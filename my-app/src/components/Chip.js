@@ -6,6 +6,7 @@ import PDF from './PDF'
 import DownloadButton from './DownloadButton';
 import { Button } from '../../../../../../node_modules/react-bootstrap';
 import axios from 'axios'
+import scrollToComponent from 'react-scroll-to-component';
 
 export default class Chip extends Component {
 
@@ -89,7 +90,10 @@ export default class Chip extends Component {
         },
         "logic": {},
         "power": {}
-      }
+      },
+      "sections": [
+        "Features", "Applications"
+      ]
     }
     this.setState({
       chip_image: data.chip_image,
@@ -100,7 +104,8 @@ export default class Chip extends Component {
       components: data.components,
       chip_name: this.props.match.params.name,
       path: null,
-      isDataFetched: true
+      isDataFetched: true,
+      sections: data.sections
     })
     if (this.props.match.params.view !== undefined) {
       this.setState({ current_view: this.props.match.params.view })
@@ -139,18 +144,31 @@ export default class Chip extends Component {
               </Nav>
             </div>
             <PDF size="400" chip={this.state.chip_name} file={this.state.current_view} />
+            {this.state.sections.map((d) => {
+              return (<button onClick={() => scrollToComponent(this[d], { offset: -100, align: 'top', duration: 500 })}>Go To {d}</button>
+              )
+            })
+            }
+
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <h2> Features </h2>
-            <List data={this.state.features} />
-          </Col>
-          <Col>
-            <h2> Applications </h2>
-            <List data={this.state.applications} />
-          </Col>
-        </Row>
+
+
+
+        {this.state.sections.map((d) => {
+          return (
+            <section className={d} ref={(section) => { this[d] = section; }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Row>
+                  <Col>
+                    <h2> {d} </h2>
+                    <List data={this.state[d.toLowerCase()]} />
+                  </Col>
+                </Row>
+              </div>
+            </section>
+          )
+        })}
         <DownloadButton chip={this.state.chip_name} />
       </Container>
     )
