@@ -6,7 +6,7 @@ import DownloadButton from './DownloadButton'
 import windowSize from 'react-window-size'
 
 
-export default class Viewer extends Component {
+export default class Simulation extends Component {
 
     state = {}
 
@@ -99,25 +99,12 @@ export default class Viewer extends Component {
         if (!this.state.isDataFetched) return null;
         return (
             <Container>
-                <h1> {this.state.chip_name} Viewer </h1>
+                <h1> {this.state.chip_name} Simulation </h1>
                 {/* get the image */}
                 <Row>
                     <Col>
-                        <p>Currently at {this.state.current_view}</p>
-
-                        <NavDropdown title="Traverse Hierarchy" id="basic-nav-dropdown">
-                            <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
-                            {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
-                            {Object.keys(this.state.components).map((d) => {
-                                return (<Link to={`/product/${this.state.chip_name}/${d}`} className="nav-link"
-                                    onClick={() => this.setState({ path: d })}>{d}</Link>)
-                            })}
-                        </NavDropdown>
-                    </Col>
-                    <Col>
                         <Nav title="Traverse Hierarchy">
-                            <Link to={`/product/${this.state.chip_name}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go Back to Datasheet</Link>
-                            <Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation`} className="nav-link" onClick={() => this.setState({ path: null })}>View Simulation</Link>
+                            <Link to={`/product/${this.state.chip_name}/${this.state.current_view}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go Back to Viewer</Link>
                         </Nav>
                     </Col>
                 </Row>                

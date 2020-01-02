@@ -153,8 +153,6 @@ export default class Chip extends Component {
           </Col>
         </Row>
 
-
-
         {this.state.sections.map((d) => {
           return (
             <section className={d} ref={(section) => { this[d] = section; }}>
