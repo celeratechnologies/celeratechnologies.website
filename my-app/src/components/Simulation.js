@@ -100,17 +100,16 @@ export default class Simulation extends Component {
         return (
             <Container>
                 <h1> {this.state.chip_name} Simulation </h1>
-                {/* get the image */}
                 <Row>
                     <Col>
                         <Nav title="Traverse Hierarchy">
                             <Link to={`/product/${this.state.chip_name}/${this.state.current_view}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go Back to Viewer</Link>
                         </Nav>
                     </Col>
-                </Row>                
+                </Row>
                 {/* Link to clickable tree viewer https://reactjsexample.com/a-simple-react-tree-menu-component/ */}
                 {/* add text to show the Hierarchy */}
-                <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view} />
+                <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view + "_simulation"} />
                 <DownloadButton chip={this.state.chip_name} />
             </Container>
         )

@@ -154,6 +154,19 @@ export default class Chip extends Component {
         </Row>
 
         {this.state.sections.map((d) => {
+          // if d is an image then....
+          // return (
+          //   <section className={d} ref={(section) => { this[d] = section; }}>
+          //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          //       <Row>
+          //         <Col>
+          //           <h2> {d} </h2>
+          //           <PDF size="400" chip={this.state.chip_name} file={this.state.d} />
+          //         </Col>
+          //       </Row>
+          //     </div>
+          //   </section>
+          // )
           return (
             <section className={d} ref={(section) => { this[d] = section; }}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
