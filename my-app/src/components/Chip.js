@@ -154,7 +154,7 @@ export default class Chip extends Component {
         </Row>
 
         {this.state.sections.map((d) => {
-          // if d is an image then....
+          // if d is an image (this can be done with API call) then...
           // return (
           //   <section className={d} ref={(section) => { this[d] = section; }}>
           //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

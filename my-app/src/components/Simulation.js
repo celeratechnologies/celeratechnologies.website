@@ -107,8 +107,6 @@ export default class Simulation extends Component {
                         </Nav>
                     </Col>
                 </Row>
-                {/* Link to clickable tree viewer https://reactjsexample.com/a-simple-react-tree-menu-component/ */}
-                {/* add text to show the Hierarchy */}
                 <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view + "_simulation"} />
                 <DownloadButton chip={this.state.chip_name} />
             </Container>
