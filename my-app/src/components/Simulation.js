@@ -107,7 +107,7 @@ export default class Simulation extends Component {
                         </Nav>
                     </Col>
                 </Row>
-                <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view + "_simulation"} />
+                <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={`sim_Tokyo-${this.state.current_view}_graph`}/>
                 <DownloadButton chip={this.state.chip_name} />
             </Container>
         )
