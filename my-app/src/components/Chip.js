@@ -143,7 +143,7 @@ export default class Chip extends Component {
               </Link>
               </Nav>
             </div>
-            <PDF size="400" chip={this.state.chip_name} file={this.state.current_view} />
+            <PDF size="400" chip={this.state.chip_name} file={this.state.current_view}/>
             {this.state.sections.map((d) => {
               return (<button onClick={() => scrollToComponent(this[d], { offset: - 100, align: 'top', duration: 500 })}>Go To {d}</button>
               )

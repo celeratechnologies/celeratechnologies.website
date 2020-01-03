@@ -8,13 +8,14 @@ export default class PDF extends Component {
   state = {
     numPages: null,
     pageNumber: 1,
-    file: './' + this.props.chip + '/' + this.props.file + '.pdf',
-    // file: './Tokyo/service.pdf',
+    file: `./Tokyo/${this.props.file}.pdf`,
     size: "thumbnail"
   };
 
   componentDidMount() {
-    this.setState({ size: this.props.size })
+    this.setState({
+      size: this.props.size,
+    })
   }
 
   onDocumentLoadSuccess = ({ numPages }) => {
@@ -23,7 +24,6 @@ export default class PDF extends Component {
 
   render() {
     const { pageNumber, numPages } = this.state;
-
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
