@@ -82,14 +82,23 @@ export default class Chip extends Component {
         "Various small power sources"
       ],
       "components": {
-        "vout": {},
-        "service": {},
+        "vout": {
+          "simulations": []
+        },
+        "service": {
+          "simulations": []
+        },
         "regulation": {
+          "simulations": [],
           "feedback": {},
           "cot": {}
         },
-        "logic": {},
-        "power": {}
+        "logic": {
+          "simulations": []
+        },
+        "power": {
+          "simulations": []
+        }
       },
       "sections": [
         "Features", "Applications"
@@ -143,7 +152,7 @@ export default class Chip extends Component {
               </Link>
               </Nav>
             </div>
-            <PDF size="400" chip={this.state.chip_name} file="application"/>
+            <PDF size="400" chip={this.state.chip_name} file="application" />
             {this.state.sections.map((d) => {
               return (<button onClick={() => scrollToComponent(this[d], { offset: - 100, align: 'top', duration: 500 })}>Go To {d}</button>
               )
@@ -170,12 +179,12 @@ export default class Chip extends Component {
           return (
             <section className={d} ref={(section) => { this[d] = section; }}>
               {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> */}
-                <Row>
-                  <Col>
-                    <h2 align="left"> {d} </h2>
-                    <List data={this.state[d.toLowerCase()]} />
-                  </Col>
-                </Row>
+              <Row>
+                <Col>
+                  <h2 align="left"> {d} </h2>
+                  <List data={this.state[d.toLowerCase()]} />
+                </Col>
+              </Row>
               {/* </div> */}
             </section>
           )
