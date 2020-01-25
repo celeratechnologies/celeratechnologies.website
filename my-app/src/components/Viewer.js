@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Nav, Row, Col, Container, NavDropdown } from 'react-bootstrap'
 import PDF from './PDF'
+import Description from './Description'
 import DownloadButton from './DownloadButton'
-import windowSize from 'react-window-size'
+import SimulationDropdown from './SimulationDropdown';
 
 
 export default class Viewer extends Component {
@@ -22,7 +23,7 @@ export default class Viewer extends Component {
         // replace this with AJAX call to backend
         let data = {
             "chip_name": "Tokyo",
-            "chip_image": "top.pdf",
+            "chip_image": "MODULEtop.pdf",
             "short_description": "Highly integrated, compact PMIC",
             "long_description": "The XC9281/XC9282 series are 600mA synchronoous rectification DC/DC converters adopting HiSAT-COT (*) control.  Due to increasing the oscillation frequency to high frequency, 0.47uH coil with a size of 1.0 x 0.5 mm can be used. A 0.6 x 0.3 mm ceramic capacitor can be used for the input capacitance (Cin) and the output capacitance(Cl), realizing that the mounting area inluding peripheral components can be reduced to 3.52 mm2. Due to increasing the oscillation frequency to a high frequency, the mounting area is reduced. Additionally, an efficiency equal to or higher than that of conventional products can realize by improving on-resistance and current consumption.  Becasue of these featrues, XC9281/XC9282 series are ideal for equipment requiring miniaturization and low profile mounting area, and battery-powered equipment such as mobile equipment.  Moreover, the high-speed transient response technology of the HiSAT-COT control makes it possible to minimize the fluctuation of the output voltage for a load transient condition. This feature is optimal for applilcations requiring a fast response and output voltage stability for an instantaneous load fluctuation like FPGA.  (*)HiSAT-COT is a proprietary high -speed transient response technology for DC?DC converter which was developed by Torex.  It is Ideal for the LSI's that require high precision and high stability power supply voltage.",
             "features": [
@@ -56,25 +57,25 @@ export default class Viewer extends Component {
                 "Various small power sources"
             ],
             "components": {
-                "vout": {
+                "MODULEvout": {
                     "description": "This is the vout view",
                     "simulations": []
                 },
-                "service": {
+                "MODULEservice": {
                     "description": "This is the service view",
                     "simulations": ["sim1", "sim2"]
                 },
-                "regulation": {
+                "MODULEregulation": {
                     "description": "This is the regulation view",
-                    "simulations": [],
+                    "simulations": ["sim1","sim2"],
                     "feedback": {},
                     "cot": {}
                 },
-                "logic": {
+                "MODULElogic": {
                     "description": "This is the logic view",
                     "simulations": []
                 },
-                "power": {
+                "MODULEpower": {
                     "description": "This is the power view",
                     "simulations": []
                 }
@@ -97,7 +98,7 @@ export default class Viewer extends Component {
         if (this.props.match.params.view !== undefined) {
             this.setState({ current_view: this.props.match.params.view })
         } else {
-            this.setState({ current_view: "top" })
+            this.setState({ current_view: "MODULEtop" })
         }
     }
 
@@ -108,7 +109,6 @@ export default class Viewer extends Component {
                 name: this.props.match.params.name,
                 view: this.props.match.params.view
             })
-            console.log('update')
         }
     }
 
@@ -118,12 +118,12 @@ export default class Viewer extends Component {
             <Container>
                 <h1> {this.state.chip_name} Viewer </h1>
                 <h4>Currently at {this.state.current_view}</h4>
-                <p align="center"> {this.state.components[this.state.current_view].description} </p>
+                <Description data={this.state.components} current_view={this.state.current_view} />
                 {/* get the image */}
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Row>
                         <NavDropdown title="Go to different view" id="basic-nav-dropdown">
-                            <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
+                            <Link to={`/product/${this.state.chip_name}/MODULEtop`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
                             {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
                             {Object.keys(this.state.components).map((d) => {
                                 return (<Link to={`/product/${this.state.chip_name}/${d}`} className="nav-link"
@@ -131,14 +131,8 @@ export default class Viewer extends Component {
                             })}
                         </NavDropdown>
                         <Link to={`/product/${this.state.chip_name}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go back to datasheet</Link>
-                        {/* <Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation`} className="nav-link" onClick={() => this.setState({ path: null })}>View simulation</Link> */}
-                        <NavDropdown title="Go to simulation" id="basic-nav-dropdown">
-                            {/* replace 'vout' with current view  */}
-                            {this.state.components[this.state.current_view].simulations.map((d) => {
-                                return (<Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation/${d}`} className="nav-link"
-                                    onClick={() => this.setState({ path: d })}>{d}</Link>)
-                            })}
-                        </NavDropdown>
+                        <SimulationDropdown chip_name={this.state.chip_name} data={this.state.components} current_view={this.state.current_view} />
+
                     </Row>
                 </div>
 
