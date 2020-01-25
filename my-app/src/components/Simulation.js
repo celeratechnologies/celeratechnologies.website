@@ -114,8 +114,8 @@ export default class Simulation extends Component {
                 <h1> {this.state.chip_name} Simulation </h1>
                 <Row>
                     <Col>
-                        <Nav title="Traverse Hierarchy">
-                            <Link to={`/product/${this.state.chip_name}/${this.state.current_view}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go Back to Viewer</Link>
+                        <Nav title="Return to viewer">
+                            <Link to={`/product/${this.state.chip_name}/${this.state.current_view}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go back to viewer</Link>
                         </Nav>
                     </Col>
                 </Row>

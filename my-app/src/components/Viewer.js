@@ -57,20 +57,25 @@ export default class Viewer extends Component {
             ],
             "components": {
                 "vout": {
+                    "description": "This is the vout view",
                     "simulations": []
                 },
                 "service": {
-                    "simulations": []
+                    "description": "This is the service view",
+                    "simulations": ["sim1", "sim2"]
                 },
                 "regulation": {
+                    "description": "This is the regulation view",
                     "simulations": [],
                     "feedback": {},
                     "cot": {}
                 },
                 "logic": {
+                    "description": "This is the logic view",
                     "simulations": []
                 },
                 "power": {
+                    "description": "This is the power view",
                     "simulations": []
                 }
             },
@@ -113,9 +118,10 @@ export default class Viewer extends Component {
             <Container>
                 <h1> {this.state.chip_name} Viewer </h1>
                 <h4>Currently at {this.state.current_view}</h4>
+                <p align="center"> {this.state.components[this.state.current_view].description} </p>
                 {/* get the image */}
-                <Row>
-                    <Col>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Row>
                         <NavDropdown title="Go to different view" id="basic-nav-dropdown">
                             <Link to={`/product/${this.state.chip_name}/top`} className="nav-link" onClick={() => this.setState({ path: null })}>top</Link>
                             {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
@@ -124,23 +130,19 @@ export default class Viewer extends Component {
                                     onClick={() => this.setState({ path: d })}>{d}</Link>)
                             })}
                         </NavDropdown>
-                    </Col>
-                    <Col>
-                        <Nav title="Traverse Hierarchy">
-                            <Link to={`/product/${this.state.chip_name}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go back to datasheet</Link>
-                            {/* <Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation`} className="nav-link" onClick={() => this.setState({ path: null })}>View simulation</Link> */}
-                            <NavDropdown title="Go to simulation" id="basic-nav-dropdown">
+                        <Link to={`/product/${this.state.chip_name}`} className="nav-link" onClick={() => this.setState({ path: null })}>Go back to datasheet</Link>
+                        {/* <Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation`} className="nav-link" onClick={() => this.setState({ path: null })}>View simulation</Link> */}
+                        <NavDropdown title="Go to simulation" id="basic-nav-dropdown">
                             {/* replace 'vout' with current view  */}
-                                {Object.keys(this.state.components.vout.simulations).map((d) => {
-                                    return (<Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation/${d}`} className="nav-link"
-                                        onClick={() => this.setState({ path: d })}>{d}</Link>)
-                                })}
-                            </NavDropdown>
-                        </Nav>
-                    </Col>
-                </Row>
+                            {this.state.components[this.state.current_view].simulations.map((d) => {
+                                return (<Link to={`/product/${this.state.chip_name}/${this.state.current_view}/simulation/${d}`} className="nav-link"
+                                    onClick={() => this.setState({ path: d })}>{d}</Link>)
+                            })}
+                        </NavDropdown>
+                    </Row>
+                </div>
+
                 {/* Link to clickable tree viewer https://reactjsexample.com/a-simple-react-tree-menu-component/ */}
-                {/* add text to show the Hierarchy */}
                 <PDF size={this.props.windowWidth} chip={this.state.chip_name} file={this.state.current_view} />
                 <DownloadButton chip={this.state.chip_name} />
             </Container>
