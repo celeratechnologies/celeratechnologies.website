@@ -169,14 +169,14 @@ export default class Chip extends Component {
           // )
           return (
             <section className={d} ref={(section) => { this[d] = section; }}>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> */}
                 <Row>
                   <Col>
-                    <h2> {d} </h2>
+                    <h2 align="left"> {d} </h2>
                     <List data={this.state[d.toLowerCase()]} />
                   </Col>
                 </Row>
-              </div>
+              {/* </div> */}
             </section>
           )
         })}
