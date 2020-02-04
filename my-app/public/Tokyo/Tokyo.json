@@ -44,7 +44,7 @@
         },
         "MODULEregulation": {
             "description": "This is the regulation view",
-            "simulations": [],
+            "simulations": ["sim1","sim2"],
             "feedback": {},
             "cot": {}
         },

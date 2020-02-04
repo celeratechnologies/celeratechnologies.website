@@ -18,8 +18,10 @@ export default class Chip extends Component {
       count: 0
     });
   }
+  
   componentDidMount() {
-    fetch("Tokyo.json")
+    // fetch(`${this.props.match.params.name}.json`)
+    fetch(`Tokyo/Tokyo.json`)
       .then(res => res.json())
       .then(data => {
         console.log("data:", data);
