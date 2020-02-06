@@ -4,7 +4,7 @@ import { Nav, Row, Col, Container } from "react-bootstrap";
 import List from "./List";
 import PDF from "./PDF";
 import DownloadButton from "./DownloadButton";
-import { Button } from "../../../../../../node_modules/react-bootstrap";
+import { Button } from "react-bootstrap";
 import scrollToComponent from "react-scroll-to-component";
 
 export default class Chip extends Component {
