@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/product/:name/:view/" render={(props) => (
             <Viewer key={props.match.params.view} {...props} />)
           } />
-          <Route exact path="/product/:name/:view/simulation/" render={(props) => (
+          <Route exact path="/product/:name/:view/:sim" render={(props) => (
             <Simulation key={props.match.params.view} {...props} />)
           } />
           <Route path="/about" component={About} />

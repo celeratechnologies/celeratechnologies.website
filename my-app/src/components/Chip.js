@@ -5,7 +5,6 @@ import List from "./List";
 import PDF from "./PDF";
 import DownloadButton from "./DownloadButton";
 import { Button } from "../../../../../../node_modules/react-bootstrap";
-import axios from "axios";
 import scrollToComponent from "react-scroll-to-component";
 
 export default class Chip extends Component {
@@ -18,10 +17,9 @@ export default class Chip extends Component {
       count: 0
     });
   }
-  
+
   componentDidMount() {
-    // fetch(`${this.props.match.params.name}.json`)
-    fetch(`Tokyo/Tokyo.json`)
+    fetch(`${this.props.match.params.name}/${this.props.match.params.name}.json`)
       .then(res => res.json())
       .then(data => {
         console.log("data:", data);
