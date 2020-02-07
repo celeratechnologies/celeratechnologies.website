@@ -12,7 +12,8 @@
     "react-pdf": "^4.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
-    "react-window-size": "^1.2.2"
+    "react-window-size": "^1.2.2",
+    "react-scroll-to-component": "1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

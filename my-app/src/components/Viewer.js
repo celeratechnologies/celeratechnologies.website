@@ -296,7 +296,7 @@ export default class Viewer extends Component {
     return (
       <Container>
         <h1> {this.state.chip_name} Viewer </h1>
-        <h4>Currently at {this.state.current_view}</h4>
+        <p>Currently at {this.state.current_view}</p>
         <Description
           data={this.state.components}
           current_view={this.state.current_view}
