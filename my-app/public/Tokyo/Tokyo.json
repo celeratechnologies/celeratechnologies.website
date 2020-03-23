@@ -34,27 +34,81 @@
     "Various small power sources"
   ],
   "components": {
-    "MODULEvout": {
-      "description": "This is the vout view",
-      "simulations": []
-    },
     "MODULEservice": {
       "description": "This is the service view",
-      "simulations": ["sim1", "sim2"]
+      "simulations": ["sim_MODULEservice"]
     },
     "MODULEregulation": {
       "description": "This is the regulation view",
-      "simulations": ["sim1", "sim2"],
-      "feedback": {},
-      "cot": {}
+      "simulations": [
+        "sim_MODULEregulation1",
+        "sim_MODULEregulation2",
+        "sim_MODULEregulation3",
+        "sim_MODULEregulation4"
+      ],
+      "MODULEfeedback": {
+        "description": "This is the feedback view",
+        "simulations": [
+          "sim_MODULEfeedback1",
+          "sim_MODULEfeedback2",
+          "sim_MODULEfeedback3"
+        ]
+      },
+      "MODULEsoftstart": {
+        "description": "This is the softstart view",
+        "simulations": [
+          "sim_MODULEsoftstart1",
+          "sim_MODULEsoftstart2",
+          "sim_MODULEsoftstart3",
+          "sim_MODULEsoftstart4"
+        ]
+      },
+      "MODULEgmo": {
+        "description": "This is the gmo view",
+        "simulations": ["sim_MODULEgmo1", "sim_MODULEgmo2", "sim_MODULEgmo3"]
+      },
+      "MODULEtoff": {
+        "description": "This is the toff view",
+        "simulations": [
+          "sim_MODULEtoff1",
+          "sim_MODULEtoff2",
+          "sim_MODULEtoff3",
+          "sim_MODULEtoff4"
+        ]
+      },
+      "MODULEton": {
+        "description": "This is the ton view",
+        "simulations": ["sim_MODULEton1", "sim_MODULEton2", "sim_MODULEton3"]
+      },
+      "MODULEtiminglogic": {
+        "description": "This is the timinglogic view",
+        "simulations": []
+      }
+    },
+    "MODULEfault": {
+      "description": "This is the fault view",
+      "simulations": []
     },
     "MODULElogic": {
       "description": "This is the logic view",
-      "simulations": []
+      "simulations": ["sim_MODULElogic1"]
     },
     "MODULEpower": {
       "description": "This is the power view",
-      "simulations": []
+      "simulations": [
+        "sim_MODULEpower1",
+        "sim_MODULEpower2",
+        "sim_MODULEpower3",
+        "sim_MODULEpower4"
+      ],
+      "MODULEzerocross": {
+        "description": "This is the zerocross view",
+        "simulations": [
+          "sim_MODULEzerocross1",
+          "sim_MODULEzerocross2",
+          "sim_MODULEzerocross3"
+        ]
+      }
     }
   },
   "sections": ["Features", "Applications"]
