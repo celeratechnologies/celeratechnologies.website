@@ -29,14 +29,12 @@ export default class Header extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to="/about" className="nav-link">About Us</Link>
-                        <Link to="/solution" className="nav-link">Solution</Link>
                         <NavDropdown title="Products" id="collasible-nav-dropdown">
                             {this.state.products.map(function (d) {
                                 return (<Link to={`/product/${d}/`} className="nav-link">{d}</Link>)
                             })}
                         </NavDropdown>
-                        <Link to="/news" className="nav-link">News</Link>
+                        <Link to="/updates" className="nav-link">Release Updates</Link>
                     </Nav>
                     <Nav>
                         <Link to="/contact" className="nav-link">Contact Us</Link>
