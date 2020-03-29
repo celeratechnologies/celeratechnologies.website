@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f05cb0ca607ff36d11264b1466388e84",
+    "revision": "c07131e5abbaae68e9ccfa608caf15a5",
     "url": "/celeratechnologies.website/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/celeratechnologies.website/static/css/2.83ace7dd.chunk.css"
   },
   {
-    "revision": "cbf88bf9904fe36b89d8",
+    "revision": "32aefed6672b83567e05",
     "url": "/celeratechnologies.website/static/css/main.b8e63fa2.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/celeratechnologies.website/static/js/2.02fa0601.chunk.js"
   },
   {
-    "revision": "cbf88bf9904fe36b89d8",
-    "url": "/celeratechnologies.website/static/js/main.259364e0.chunk.js"
+    "revision": "32aefed6672b83567e05",
+    "url": "/celeratechnologies.website/static/js/main.cbf15553.chunk.js"
   },
   {
     "revision": "a070048e3ed80137a6e9",
