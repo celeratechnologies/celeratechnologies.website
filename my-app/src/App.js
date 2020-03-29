@@ -19,6 +19,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <Route exact path="/" component={Logo} />
+          <Route path="/home" component={Logo} />
           <Route exact path="/product/:name/" render={(props) => (
             <Chip key={props.match.params.name} {...props} />)
           } />

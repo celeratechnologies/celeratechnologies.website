@@ -18,14 +18,13 @@ export default class Header extends Component {
     render() {
         return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="home">
+                <Navbar.Brand href="/">
                     <img
                         src={logo}
                         width="80"
                         height="30"
                         className="d-inline-block align-top"
                     />
-                    {/* {'Celera'} */}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
