@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/celeratechnologies.website/precache-manifest.b76200938af011c8135dd5de53129b3f.js"
+  "/celeratechnologies.website/precache-manifest.168beb81740bd86507801acb8e74b129.js"
 );
 
 self.addEventListener('message', (event) => {
