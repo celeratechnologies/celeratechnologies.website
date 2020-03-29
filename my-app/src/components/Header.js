@@ -18,7 +18,7 @@ export default class Header extends Component {
     render() {
         return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/celeratechnologies.website">
                     <img
                         src={logo}
                         width="80"
