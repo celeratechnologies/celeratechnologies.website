@@ -1,19 +1,18 @@
 {
   "files": {
     "main.css": "/celeratechnologies.website/static/css/main.b8e63fa2.chunk.css",
-    "main.js": "/celeratechnologies.website/static/js/main.cbf15553.chunk.js",
-    "main.js.map": "/celeratechnologies.website/static/js/main.cbf15553.chunk.js.map",
-    "runtime-main.js": "/celeratechnologies.website/static/js/runtime-main.e91d8559.js",
-    "runtime-main.js.map": "/celeratechnologies.website/static/js/runtime-main.e91d8559.js.map",
-    "static/css/2.83ace7dd.chunk.css": "/celeratechnologies.website/static/css/2.83ace7dd.chunk.css",
-    "static/js/2.02fa0601.chunk.js": "/celeratechnologies.website/static/js/2.02fa0601.chunk.js",
-    "static/js/2.02fa0601.chunk.js.map": "/celeratechnologies.website/static/js/2.02fa0601.chunk.js.map",
+    "main.js": "/celeratechnologies.website/static/js/main.ae9dee78.chunk.js",
+    "main.js.map": "/celeratechnologies.website/static/js/main.ae9dee78.chunk.js.map",
+    "runtime-main.js": "/celeratechnologies.website/static/js/runtime-main.6d8e5c37.js",
+    "runtime-main.js.map": "/celeratechnologies.website/static/js/runtime-main.6d8e5c37.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/celeratechnologies.website/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.0a571644.chunk.js": "/celeratechnologies.website/static/js/2.0a571644.chunk.js",
+    "static/js/2.0a571644.chunk.js.map": "/celeratechnologies.website/static/js/2.0a571644.chunk.js.map",
     "index.html": "/celeratechnologies.website/index.html",
-    "precache-manifest.8b6a43cf7298d139f5f9cb3a2be0e228.js": "/celeratechnologies.website/precache-manifest.8b6a43cf7298d139f5f9cb3a2be0e228.js",
+    "precache-manifest.22858946800717f83a3faf9c33dc91a0.js": "/celeratechnologies.website/precache-manifest.22858946800717f83a3faf9c33dc91a0.js",
     "service-worker.js": "/celeratechnologies.website/service-worker.js",
-    "static/css/2.83ace7dd.chunk.css.map": "/celeratechnologies.website/static/css/2.83ace7dd.chunk.css.map",
+    "static/css/2.af3c1da9.chunk.css.map": "/celeratechnologies.website/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.b8e63fa2.chunk.css.map": "/celeratechnologies.website/static/css/main.b8e63fa2.chunk.css.map",
-    "static/media/XC9281-XC9282.pdf": "/celeratechnologies.website/static/media/XC9281-XC9282.5c83d0f3.pdf",
     "static/media/celeraLogo.jpg": "/celeratechnologies.website/static/media/celeraLogo.791d60ce.jpg"
   }
 }
