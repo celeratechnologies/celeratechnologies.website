@@ -23,8 +23,6 @@ export default class Viewer extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("data:", data);
-        console.log("components:", data.components);
         this.setState({ current_view: this.props.match.params.view });
         this.setState({
           chip_image: data.chip_image,
@@ -54,11 +52,6 @@ export default class Viewer extends Component {
   }
 
   render() {
-    console.log("in render");
-    console.log(this.state);
-    console.log(this.state.components);
-    console.log(this.state.current_view);
-
     if (!this.state.isDataFetched) return null;
     return (
       <Container>

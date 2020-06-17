@@ -23,7 +23,6 @@ export default class Chip extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("data:", data);
         this.setState({
           chip_image: data.chip_image,
           short_description: data.short_description,
@@ -54,7 +53,6 @@ export default class Chip extends Component {
         name: this.props.match.params.name,
         view: this.props.match.params.view,
       });
-      console.log("update");
     }
   }
 
