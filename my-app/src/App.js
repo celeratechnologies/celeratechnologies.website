@@ -38,9 +38,6 @@ class App extends Component {
             )}
           />
           <Route path="/updates" component={Updates} />
-          {/* <Route path="/about" component={About} />
-          <Route path="/news" component={News} />
-          <Route path="/solution" component={Solution} /> */}
         </div>
       </HashRouter>
     );

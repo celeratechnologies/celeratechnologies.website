@@ -29,6 +29,7 @@ export default class Header extends Component {
             width="80"
             height="30"
             className="d-inline-block align-top"
+            alt="logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
