@@ -136,7 +136,8 @@ export default class Chip extends Component {
             </section>
           );
         })}
-        <DownloadButton chip={this.state.chip_name} />
+        {/* TODO: fix this pdf */}
+        <DownloadButton chip={this.state.chip_name} file={"datasheet"} />
       </Container>
     );
   }

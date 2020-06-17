@@ -112,7 +112,7 @@ export default class Viewer extends Component {
           chip={this.state.chip_name}
           file={this.state.current_view}
         />
-        <DownloadButton chip={this.state.chip_name} />
+        <DownloadButton chip={this.state.chip_name} file={"MODULEtop"} />
       </Container>
     );
   }

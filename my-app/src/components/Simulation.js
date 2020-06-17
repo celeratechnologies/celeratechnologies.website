@@ -79,7 +79,7 @@ export default class Simulation extends Component {
           file={this.props.match.params.sim}
         />
 
-        <DownloadButton chip={this.state.chip_name} />
+        <DownloadButton chip={this.state.chip_name} file={this.props.match.params.sim} />
       </Container>
     );
   }
