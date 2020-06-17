@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Row, Col, Container, NavDropdown } from "react-bootstrap";
+import { Row, Container, NavDropdown } from "react-bootstrap";
 import PDF from "./PDF";
 import Description from "./Description";
 import DownloadButton from "./DownloadButton";
@@ -13,14 +13,16 @@ export default class Viewer extends Component {
     super(props);
     this.setState({
       isDataFetched: false,
-      count: 0
+      count: 0,
     });
   }
 
   componentDidMount() {
-    fetch(`${this.props.match.params.name}/${this.props.match.params.name}.json`)
-      .then(res => res.json())
-      .then(data => {
+    fetch(
+      `${this.props.match.params.name}/${this.props.match.params.name}.json`
+    )
+      .then((res) => res.json())
+      .then((data) => {
         console.log("data:", data);
         console.log("components:", data.components);
         this.setState({ current_view: this.props.match.params.view });
@@ -33,7 +35,7 @@ export default class Viewer extends Component {
           components: data.components,
           chip_name: this.props.match.params.name,
           path: null,
-          isDataFetched: true
+          isDataFetched: true,
         });
       });
   }
@@ -46,7 +48,7 @@ export default class Viewer extends Component {
       this.forceUpdate();
       this.setState({
         name: this.props.match.params.name,
-        view: this.props.match.params.view
+        view: this.props.match.params.view,
       });
     }
   }
@@ -71,7 +73,7 @@ export default class Viewer extends Component {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <Row>
@@ -84,7 +86,7 @@ export default class Viewer extends Component {
                 top
               </Link>
               {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
-              {Object.keys(this.state.components).map(d => {
+              {Object.keys(this.state.components).map((d) => {
                 return (
                   <Link
                     to={`/product/${this.state.chip_name}/${d}`}

@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 
 export default class List extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     console.log("desc:", this.props.data);
   }
   render() {
-    if (this.props.current_view == "MODULEtop") return null;
+    if (this.props.current_view === "MODULEtop") return null;
     else
       return (
         <div>

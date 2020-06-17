@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Chip from "./components/Chip";
 import Header from "./components/Header";
-import About from "./components/About";
-import Solution from "./components/Solution";
-import News from "./components/News";
 import Logo from "./components/Logo";
 import Viewer from "./components/Viewer";
 import Simulation from "./components/Simulation";

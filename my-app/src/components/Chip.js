@@ -4,7 +4,6 @@ import { Nav, Row, Col, Container } from "react-bootstrap";
 import List from "./List";
 import PDF from "./PDF";
 import DownloadButton from "./DownloadButton";
-import { Button } from "react-bootstrap";
 import scrollToComponent from "react-scroll-to-component";
 
 export default class Chip extends Component {
@@ -14,14 +13,16 @@ export default class Chip extends Component {
     super(props);
     this.setState({
       isDataFetched: false,
-      count: 0
+      count: 0,
     });
   }
 
   componentDidMount() {
-    fetch(`${this.props.match.params.name}/${this.props.match.params.name}.json`)
-      .then(res => res.json())
-      .then(data => {
+    fetch(
+      `${this.props.match.params.name}/${this.props.match.params.name}.json`
+    )
+      .then((res) => res.json())
+      .then((data) => {
         console.log("data:", data);
         this.setState({
           chip_image: data.chip_image,
@@ -33,7 +34,7 @@ export default class Chip extends Component {
           chip_name: this.props.match.params.name,
           path: null,
           isDataFetched: true,
-          sections: data.sections
+          sections: data.sections,
         });
         if (this.props.match.params.view !== undefined) {
           this.setState({ current_view: this.props.match.params.view });
@@ -51,7 +52,7 @@ export default class Chip extends Component {
       this.forceUpdate();
       this.setState({
         name: this.props.match.params.name,
-        view: this.props.match.params.view
+        view: this.props.match.params.view,
       });
       console.log("update");
     }
@@ -73,7 +74,7 @@ export default class Chip extends Component {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Nav title="Show Larger">
@@ -87,14 +88,14 @@ export default class Chip extends Component {
               </Nav>
             </div>
             <PDF size="400" chip={this.state.chip_name} file="application" />
-            {this.state.sections.map(d => {
+            {this.state.sections.map((d) => {
               return (
                 <button
                   onClick={() =>
                     scrollToComponent(this[d], {
                       offset: -100,
                       align: "top",
-                      duration: 500
+                      duration: 500,
                     })
                   }
                 >
@@ -105,7 +106,7 @@ export default class Chip extends Component {
           </Col>
         </Row>
 
-        {this.state.sections.map(d => {
+        {this.state.sections.map((d) => {
           // if d is an image (this can be done with API call) then...
           // return (
           //   <section className={d} ref={(section) => { this[d] = section; }}>
@@ -122,7 +123,7 @@ export default class Chip extends Component {
           return (
             <section
               className={d}
-              ref={section => {
+              ref={(section) => {
                 this[d] = section;
               }}
             >

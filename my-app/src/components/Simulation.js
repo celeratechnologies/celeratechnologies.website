@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Row, Col, Container, NavDropdown } from "react-bootstrap";
+import { Nav, Row, Col, Container } from "react-bootstrap";
 import PDF from "./PDF";
 import DownloadButton from "./DownloadButton";
-import windowSize from "react-window-size";
 
 export default class Simulation extends Component {
   state = {};
@@ -12,7 +11,7 @@ export default class Simulation extends Component {
     super(props);
     this.setState({
       isDataFetched: false,
-      count: 0
+      count: 0,
     });
   }
   componentDidMount() {
@@ -41,7 +40,7 @@ export default class Simulation extends Component {
         "Operating Ambient Temperature:-40C ~ +105C",
         "Package:LGA-6B01 (1.2 x 1.2 x 0.3mm)",
         "WLP-5-06(0.88 x 0.96 x 0.33mm)",
-        "Environmentally:EU RoHs Complieant, Pb Free"
+        "Environmentally:EU RoHs Complieant, Pb Free",
       ],
       applications: [
         "Smart phone / Mobile phones",
@@ -51,33 +50,33 @@ export default class Simulation extends Component {
         "Portable game consoles",
         "Smartcard",
         "Power supply for module",
-        "Various small power sources"
+        "Various small power sources",
       ],
       components: {
         MODULEvout: {
           description: "This is the vout view",
-          simulations: []
+          simulations: [],
         },
         MODULEservice: {
           description: "This is the service view",
-          simulations: ["sim1", "sim2"]
+          simulations: ["sim1", "sim2"],
         },
         MODULEregulation: {
           description: "This is the regulation view",
           simulations: [],
           feedback: {},
-          cot: {}
+          cot: {},
         },
         MODULElogic: {
           description: "This is the logic view",
-          simulations: []
+          simulations: [],
         },
         MODULEpower: {
           description: "This is the power view",
-          simulations: []
-        }
+          simulations: [],
+        },
       },
-      sections: ["Features", "Applications"]
+      sections: ["Features", "Applications"],
     };
     this.setState({
       chip_image: data.chip_image,
@@ -88,7 +87,7 @@ export default class Simulation extends Component {
       components: data.components,
       chip_name: this.props.match.params.name,
       path: null,
-      isDataFetched: true
+      isDataFetched: true,
     });
     if (this.props.match.params.view !== undefined) {
       this.setState({ current_view: this.props.match.params.view });
@@ -105,7 +104,7 @@ export default class Simulation extends Component {
       this.forceUpdate();
       this.setState({
         name: this.props.match.params.name,
-        view: this.props.match.params.view
+        view: this.props.match.params.view,
       });
       console.log("update");
     }
