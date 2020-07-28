@@ -1,6 +1,6 @@
 {
   "chip_name": "JUNO",
-  "chip_image": "JUNO.pdf",
+  "chip_image": "application.pdf",
   "short_description": "Celera Building Block Library",
   "long_description": "The Celera Building Block Library consits of over 80 symbols that make up all the analog and digital cells needed for IC designs.",
   "features": [

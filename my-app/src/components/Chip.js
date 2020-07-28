@@ -85,7 +85,7 @@ export default class Chip extends Component {
                 </Link>
               </Nav>
             </div>
-            <PDF size="400" chip={this.state.chip_name} file="application" />
+            <PDF size="400" chip={this.state.chip_name} file={this.state.chip_image} />
             {this.state.sections.map((d) => {
               return (
                 <button
