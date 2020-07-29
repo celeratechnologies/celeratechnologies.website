@@ -109,8 +109,8 @@ export default class Viewer extends Component {
         {/* Link to clickable tree viewer https://reactjsexample.com/a-simple-react-tree-menu-component/ */}
         <PDF
           size={this.props.windowWidth}
-          chip={this.state.chip_name}
-          file={this.state.current_view}
+          chip={this.state.chip_name} 
+          file={`${this.state.current_view}.pdf`}
         />
         <DownloadButton chip={this.state.chip_name} file={"MODULEtop"} />
       </Container>

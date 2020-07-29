@@ -13,6 +13,7 @@ export default class PDF extends Component {
   };
 
   componentDidMount() {
+    console.log(`./${this.props.chip}/${this.props.file}`);
     this.setState({
       size: this.props.size,
     });

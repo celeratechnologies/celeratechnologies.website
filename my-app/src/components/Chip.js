@@ -7,7 +7,7 @@ import DownloadButton from "./DownloadButton";
 import scrollToComponent from "react-scroll-to-component";
 
 export default class Chip extends Component {
-  state = {};
+  state = {}
   constructor(props) {
     super(props);
     this.state = {
