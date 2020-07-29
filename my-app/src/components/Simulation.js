@@ -9,10 +9,10 @@ export default class Simulation extends Component {
 
   constructor(props) {
     super(props);
-    this.setState({
+    this.state = {
       isDataFetched: false,
       count: 0,
-    });
+    };
   }
 
   componentDidMount() {

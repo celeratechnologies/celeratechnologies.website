@@ -8,13 +8,12 @@ import scrollToComponent from "react-scroll-to-component";
 
 export default class Chip extends Component {
   state = {};
-
   constructor(props) {
     super(props);
-    this.setState({
+    this.state = {
       isDataFetched: false,
       count: 0,
-    });
+    };
   }
 
   componentDidMount() {
@@ -85,10 +84,11 @@ export default class Chip extends Component {
                 </Link>
               </Nav>
             </div>
-            <PDF size="400" chip={this.state.chip_name} file={this.state.chip_image} />
+            <PDF size={400} chip={this.state.chip_name} file={this.state.chip_image} />
             {this.state.sections.map((d) => {
               return (
                 <button
+                  key = {d.toString()}
                   onClick={() =>
                     scrollToComponent(this[d], {
                       offset: -100,
@@ -120,6 +120,7 @@ export default class Chip extends Component {
           // )
           return (
             <section
+              key = {d.toString()}
               className={d}
               ref={(section) => {
                 this[d] = section;

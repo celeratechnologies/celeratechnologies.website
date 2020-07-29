@@ -7,13 +7,21 @@ export default class Header extends Component {
   state = {};
   constructor(props) {
     super(props);
-
-    // replace this with AJAX call to backend
-    let data = {
-      products: ["Tokyo", "JUNO", "Yokahama", "Yokosuka"],
-    };
-    this.state.products = data.products;
+    this.state = {
+      products: []
+    }
   }
+
+  componentDidMount() {
+    fetch('chips.json')
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          products: data.chips
+        });
+      });
+  }
+
   render() {
     return (
       <Navbar
@@ -38,7 +46,7 @@ export default class Header extends Component {
             <NavDropdown title="Products" id="collasible-nav-dropdown">
               {this.state.products.map(function (d) {
                 return (
-                  <Link to={`/product/${d}/`} className="nav-link">
+                  <Link key={d.toString()} to={`/product/${d}/`} className="nav-link">
                     {d}
                   </Link>
                 );

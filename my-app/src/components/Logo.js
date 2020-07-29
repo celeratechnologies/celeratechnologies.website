@@ -6,7 +6,7 @@ export default class About extends Component {
 
   constructor() {
     super();
-    this.setState({ isDataFetched: false });
+    this.state = { isDataFetched: false };
   }
 
   componentDidMount() {
