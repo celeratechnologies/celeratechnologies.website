@@ -8,7 +8,7 @@ export default class PDF extends Component {
   state = {
     numPages: null,
     pageNumber: 1,
-    file: `./${this.props.chip}/${this.props.file}`,
+    file: `./${this.props.chip}/${this.props.file}.pdf`,
     size: "thumbnail",
   };
 

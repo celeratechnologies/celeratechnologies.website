@@ -110,7 +110,7 @@ export default class Viewer extends Component {
         <PDF
           size={this.props.windowWidth}
           chip={this.state.chip_name} 
-          file={`${this.state.current_view}.pdf`}
+          file={this.state.current_view}
         />
         <DownloadButton chip={this.state.chip_name} file={"MODULEtop"} />
       </Container>
