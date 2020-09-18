@@ -17,20 +17,45 @@ export default class Viewer extends Component {
     };
   }
 
+  getProperty( propertyName, object ) {
+    if (propertyName !== "MODULEtop") {
+      var parts = propertyName.split("-"),
+      length = parts.length,
+      i,
+      property = object || this;
+  
+      for ( i = 0; i < length; i++ ) {
+        if (parts[i] !== "MODULEtop") {
+          property = property[parts[i]];
+        }
+      }
+      return property;
+    } else { 
+      return object;
+    }
+  }
+  
+  getLast(view){
+    let parts = view.split("-");
+    return parts[parts.length-1]
+  }
+
   componentDidMount() {
     fetch(
       `${this.props.match.params.name}/${this.props.match.params.name}.json`
     )
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ current_view: this.props.match.params.view });
+        this.setState({ current_view: this.getLast(this.props.match.params.view)});
         this.setState({
           chip_image: data.chip_image,
           short_description: data.short_description,
           long_description: data.long_description,
           features: data.features,
           applications: data.applications,
-          components: data.components,
+          components: this.getProperty(this.props.match.params.view, data.components),
+          // components: this.getProperty("MODULEtop", data.components),
+          // components: data.components.MODULEregulation,
           chip_name: this.props.match.params.name,
           path: null,
           isDataFetched: true,
@@ -80,15 +105,18 @@ export default class Viewer extends Component {
               </Link>
               {/* {Object.keys(() => this.state.path ? this.state.components[this.state.path] : this.state.components).map((d) => { */}
               {Object.keys(this.state.components).map((d) => {
-                return (
-                  <Link
-                    to={`/product/${this.state.chip_name}/${d}`}
-                    className="nav-link"
-                    onClick={() => this.setState({ path: d })}
-                  >
-                    {d}
-                  </Link>
-                );
+                console.log(d)
+                if (String(d).startsWith("MODULE")) {
+                  return (
+                    <Link
+                      to={`/product/${this.state.chip_name}/${this.props.match.params.view}-${d}`}
+                      className="nav-link"
+                      onClick={() => this.setState({ path: d })}
+                    >
+                      {d}
+                    </Link>
+                  );
+                }
               })}
             </NavDropdown>
             <Link

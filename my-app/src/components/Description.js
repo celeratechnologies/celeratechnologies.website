@@ -8,7 +8,7 @@ export default class List extends Component {
         <div>
           <p align="center">
             {" "}
-            {this.props.data[this.props.current_view].description}{" "}
+            {this.props.data.description}{" "}
           </p>
         </div>
       );
