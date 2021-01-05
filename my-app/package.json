@@ -4,7 +4,7 @@
   "homepage": "https://celeratechnologies.github.io/celeratechnologies.website/",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "file-system": "^2.2.2",
     "js-file-download": "^0.4.10",
